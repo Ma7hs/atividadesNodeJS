@@ -5,7 +5,7 @@ Autor - Matheus Siqueira Silva
 Versão - 1.0
 *********************************************************/
 
-var verificaTabuada = require("./models/verificate")
+var verificador = require("./models/verificate")
 var readLine = require("readline");
 
 //Criando a entrada de dados para chamar a função CallBack
@@ -24,20 +24,20 @@ dataInput.question('Insira o número inicial: ', function(numero1){
     }else{
         dataInput.question('Insira o número final: ', function(numero2){
             numeroFinal = Number(numero2);
-            if(numeroFinal > 100 || numeroFinal < 1000){
-                console.log('ERROR: Digite um número que seja entre 100 a 1000')
-                dataInput.close();
-            }else if(numeroInicial == numeroFinal){
+            if(numeroInicial == numeroFinal){
                 console.log('ERROR: As entradas não pode ser iguais!')
                 dataInput.close();
             }else if(numeroInicial == '' || numeroFinal == ''){
                 console.log('ERROR: As entradas não podem estar vazias')
                 dataInput.close();
+            }else if(numeroFinal > 1000 || numeroFinal <= 99){
+                console.log('ERROR: Não pode ser maior que mil ou menor que cem!')
+                dataInput.close();
             }else{
-                dataInput.question('Escolha entre PAR ou IMPAR: ', function(decisao){
+                dataInput.question('Escolha entre PAR | IMPAR :', function(decisao){
                     escolha = String(decisao.toUpperCase());
         
-                    tabuada = verificaTabuada.verificaImparPar(Number(numeroInicial), Number(numeroFinal), escolha)
+                    verificador = verificador.verificaImparPar(Number(numeroInicial), Number(numeroFinal), escolha)
                     dataInput.close();
                 })  
             }
