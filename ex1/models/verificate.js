@@ -22,8 +22,6 @@ const verificaExame = (mediaNormal, exame) =>
 
 const verificaGeneroProfessor = function(generoProfessor){
     
-    let status = true;
-    
     let genero = generoProfessor
     if (genero == 'M'){
         return 'O professor'
@@ -44,15 +42,20 @@ const verificaGeneroAluno = function(generoAluno){
     }
 }
 
-const verificaAprovacao = function(verificaAprovacao){
-    let aprovadx = verificaAprovacao;
-
-    if(verificaGeneroAluno == 'F'){
-        return 'aprovada'
-    }else if (verificaGeneroAluno == 'M'){
-        return 'aprovado'
+const verificaAprovacao = function(verificaGeneroAluno){
+    
+    let genero = verificaGeneroAluno
+        if(genero == 'M'){
+            return 'aprovado'
+            console.log(genero)
+        }else if(genero = 'F'){
+            return 'aprovada'
+        }else{
+            console.log("ERRO: O genero ALUNO inserido é inválido dentro do nosso sistema")
+        }
+        console.log(genero)
     }
-}
+
 
 module.exports = {
     verificaNota,

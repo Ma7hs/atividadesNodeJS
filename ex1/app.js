@@ -46,7 +46,7 @@ dataInput.question("Digite o nome do aluno: ", function (nomeAluno) {
 
                                             let generoAluno = verificaNota.verificaGeneroAluno(sexoA)
                                             let generoProfessor = verificaNota.verificaGeneroProfessor(sexoP)
-                                            let verificaAprovacao = verificaNota.verificaAprovacao()
+                                            let verificaAprovacao = verificaNota.verificaAprovacao(sexoA)
 
                                             if(isNaN(nota1) || isNaN(nota2) || isNaN(nota3) || isNaN(nota4)){
                                                 console.log('ERROR: Insira apenas números dentro do nosso sistema!')
